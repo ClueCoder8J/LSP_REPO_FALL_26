@@ -67,7 +67,7 @@ public class ETLPipeline {
                 String employmentStatus = (hoursWorked < 30) ? "Part-Time" : "Full-Time";
 
                 // Formats the values required for the row into a csv format, then adds the row to the data variable
-                data.add(String.format("%d, %s, %s, %.2f, %.2f, %.2f, %s, %s", employeeID, name, department, hoursWorked, hourlyRate, grossPay, payLevel, employmentStatus));
+                data.add(String.format("%d,%s,%s,%.2f,%.2f,%.2f,%s,%s", employeeID, name, department, hoursWorked, hourlyRate, grossPay, payLevel, employmentStatus));
                 linesTransformed++; // Updates count only after data has been added to
 
             }
@@ -124,8 +124,8 @@ public class ETLPipeline {
     private static String getPayLevel(double grossPay) {
         String payLevel;
         if (grossPay < 500.00) { payLevel = "Low"; }
-        else if (grossPay > 500.00 & grossPay < 999.99) { payLevel = "Standard"; }
-        else if (grossPay > 1000.00 & grossPay < 1999.99) { payLevel = "High"; }
+        else if (grossPay >= 500.00 & grossPay < 999.99) { payLevel = "Standard"; }
+        else if (grossPay >= 1000.00 & grossPay < 1999.99) { payLevel = "High"; }
         else { payLevel = "Executive"; }
 
         return payLevel;
