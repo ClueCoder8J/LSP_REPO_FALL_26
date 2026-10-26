@@ -79,9 +79,9 @@ public class Book {
      * @return String describing book's name, author and availability
      */
     public String toString() {
-        final String status = this.isAvailable() ? "AVAILABLE" : "BORROWED";
+        final String status = this.isAvailable() ? "[AVAILABLE]" : "[BORROWED]";
 
-        return this.getTitle() + " by " + this.getAuthor() + " " + status;
+        return this.getIsbn() + " " + this.getTitle() + " by " + this.getAuthor() + " " + status;
     }
 
 
